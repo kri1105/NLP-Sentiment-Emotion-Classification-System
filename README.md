@@ -89,11 +89,3 @@ text-emotion-detector/
 4. `pip install -r requirements.txt`
 5. `streamlit run main_app.py`
 6. Wait a little bit for everything to show up
-
-
-
-
-## Why your original version didn't work
-
-1. The model was saved wrong
-2. The dependencies were wrong
