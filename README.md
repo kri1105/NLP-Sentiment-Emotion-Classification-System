@@ -78,3 +78,24 @@ text-emotion-detector/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+
+
+
+# HOW TO USE
+
+1. `cd <folder-name-of-this-project>`
+2.  `python -m venv venv`
+3. `.\venv\scripts\activate`
+4. `pip install -r requirements.txt`
+5. `streamlit run main_app.py`
+6. Wait a little bit for everything to show up
+
+
+
+
+## Why your original version didn't work
+
+1. The model was saved wrong
+2. The dependencies were wrong
+3. Code overall is a solid 4/10 (I have committed a newer and actually working h5 file into your models/ folder)
+4. Ok, time to sleep good night
