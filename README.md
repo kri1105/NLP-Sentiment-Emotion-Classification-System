@@ -82,10 +82,10 @@ text-emotion-detector/
 
 
 # HOW TO USE
-
-1. `cd <folder-name-of-this-project>`
-2.  `python -m venv venv`
-3. `.\venv\scripts\activate`
-4. `pip install -r requirements.txt`
-5. `streamlit run main_app.py`
-6. Wait a little bit for everything to show up
+1. Open a terminal
+2. `cd <folder-name-of-this-project>`
+3.  `python -m venv venv`
+4. `.\venv\scripts\activate`
+5. `pip install -r requirements.txt`
+6. `streamlit run main_app.py`
+7. Wait a little bit for everything to show up
