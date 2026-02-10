@@ -97,5 +97,3 @@ text-emotion-detector/
 
 1. The model was saved wrong
 2. The dependencies were wrong
-3. Code overall is a solid 4/10 (I have committed a newer and actually working h5 file into your models/ folder)
-4. Ok, time to sleep good night
