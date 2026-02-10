@@ -59,19 +59,22 @@ Ensure the following are installed:
 
 ## 📁 Project Structure
 
-text-emotion-detection/
+text-emotion-detector/
 │
-├── data/
-│   └── emotion_dataset/          # DAIR-AI Emotion Dataset
+├── app.py                     # Streamlit UI (Frontend)
+│
 ├── models/
-│   └── distilbert_emotion/       # Saved model checkpoint
+│   └── distilbert_emotion_classifier.h5   # Trained model
+│
 ├── src/
-│   ├── data_loader.py           # Data preprocessing pipeline
-│   ├── model.py                 # DistilBERT model architecture
-│   ├── train.py                 # Training script
-│   └── inference.py             # Prediction script
+│   ├── __init__.py
+│   ├── tokenizer.py           # Tokenizer loading & preprocessing
+│   ├── model_loader.py        # Model loading logic
+│   ├── predict.py             # Emotion prediction function
+│
 ├── notebooks/
-│   └── emotion_analysis.ipynb   # Exploratory analysis
-├── requirements.txt             # Dependencies
-└── README.md                    # You're reading it!
-
+│   └── training.ipynb         # (Optional) Training notebook
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
