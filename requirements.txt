@@ -46,6 +46,7 @@ optree==0.18.0
 packaging==26.0
 pandas==2.3.3
 pillow==12.1.0
+plotly>=5.14.0
 protobuf==6.33.5
 pyarrow==23.0.0
 pydeck==0.9.1
