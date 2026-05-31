@@ -9,6 +9,41 @@ A state-of-the-art deep learning emotion classification system that analyzes tex
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.x-red.svg)
 
+## ⚡ Improved Model (v2) — Higher Accuracy Recipe
+
+The original DistilBERT recipe in this repo reaches **93%** test accuracy.
+An improved training pipeline ships alongside it in
+[`notebook/NLP_Sentiment_Emotion_Improved.ipynb`](notebook/NLP_Sentiment_Emotion_Improved.ipynb),
+targeting **≥ 94%** test accuracy on the same dair-ai/emotion test split.
+
+| Lever | Original | Improved |
+|---|---|---|
+| Backbone | DistilBERT-base | **RoBERTa-base** |
+| Pooling | mean only | **[CLS] ⊕ masked-mean concat** |
+| Head | Dense(256) ReLU | **Dense(512) GELU + LayerNorm** |
+| Output | softmax | **logits + `from_logits=True`** |
+| Loss | sparse CE | **CE + label smoothing 0.05** |
+| Optimizer | Adam 2e-5 | **AdamW (wd=0.01) + grad clip 1.0** |
+| LR schedule | constant | **linear warmup (10%) → linear decay** |
+| Max length | 128 | **96** (faster, covers 99% of samples) |
+| Batch size | 16 | **32** |
+| Best-model metric | val_accuracy | **val_macro_f1** (imbalance-aware) |
+| Mixed precision | – | **enabled on GPU** |
+
+### How to retrain
+
+1. Open the improved notebook on a GPU runtime (Colab T4 / A100 or Kaggle):
+   `notebook/NLP_Sentiment_Emotion_Improved.ipynb`
+2. Run all cells — training takes ≈ 30–60 min on a T4.
+3. The notebook saves weights to `model/best_emotion_model_roberta.h5`.
+4. Relaunch the Streamlit app — `src/model_loader.py` auto-detects the new
+   weights and uses them. No code change needed; if you delete them it falls
+   back to the legacy DistilBERT weights.
+
+The classification head + loader are implemented as reusable modules in
+[`src/`](src/) (`model.py`, `model_loader.py`, `predict.py`, `tokenizer.py`)
+so the notebook and the app share the exact same architecture definition.
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
