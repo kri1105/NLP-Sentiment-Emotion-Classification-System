@@ -44,24 +44,6 @@ The classification head + loader are implemented as reusable modules in
 [`src/`](src/) (`model.py`, `model_loader.py`, `predict.py`, `tokenizer.py`)
 so the notebook and the app share the exact same architecture definition.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Dataset](#dataset)
-- [Model Architecture](#model-architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Training Details](#training-details)
-- [Performance](#performance)
-- [Optimization Journey](#optimization-journey)
-- [Demo](#demo)
-- [Technologies Used](#technologies-used)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## 🌟 Overview
 
@@ -224,33 +206,6 @@ The app will open in your default browser at `http://localhost:8501`
 2. Click "Predict Emotion 🚀"
 3. View the predicted emotion, confidence score, and probability distribution
 
-### Example Predictions
-
-```python
-# Example 1
-Input: "I'm so happy and excited about the new opportunity!"
-Output: Joy (Confidence: 0.9512)
-
-# Example 2
-Input: "This makes me really angry and frustrated!"
-Output: Anger (Confidence: 0.9287)
-
-# Example 3
-Input: "I miss you so much, thinking of you always"
-Output: Love (Confidence: 0.9134)
-
-# Example 4
-Input: "I'm terrified of what might happen next"
-Output: Fear (Confidence: 0.9045)
-
-# Example 5
-Input: "Oh wow! I can't believe this just happened!"
-Output: Surprise (Confidence: 0.8876)
-
-# Example 6
-Input: "Feeling really down and blue today"
-Output: Sadness (Confidence: 0.8923)
-```
 
 ## 📁 Project Structure
 
@@ -331,18 +286,6 @@ The model achieves exceptional performance on the test set (2,000 samples):
 | **Fear** | 0.94 | 0.93 | 0.94 | 224 |
 | **Surprise** | 0.69 | 0.94 | 0.79 | 66 |
 
-### Key Insights
-
-**Strengths:**
-- ✅ **Excellent recall across ALL classes** - including rare emotions (Love: 94%, Surprise: 94%)
-- ✅ **Balanced performance** - No class is neglected despite severe imbalance
-- ✅ **High precision** - Joy (95%), Anger (96%), Fear (94%), Sadness (94%)
-- ✅ **Production-ready** - Consistent performance suitable for real-world deployment
-
-**Observations:**
-- **Love and Surprise** show slightly lower precision (72% and 69%) due to their rarity, but excellent recall (94% each)
-- **Joy and Anger** show best overall performance with F1-scores of 0.95
-- Model successfully handles the 9:1 class imbalance between Joy and Surprise
 
 ### Confusion Matrix Analysis
 
@@ -403,29 +346,6 @@ The model shows excellent discrimination between emotion classes with minimal co
 - **Dataset**: Hugging Face Datasets (`dair-ai/emotion`)
 - **Development**: Jupyter Notebook, Python 3.8+
 
-## 🚀 Future Enhancements
-
-### High Priority
-- [ ] Deploy to Streamlit Cloud or Hugging Face Spaces
-- [ ] Create REST API with FastAPI for production integration
-- [ ] Add batch prediction capability for processing multiple texts
-- [ ] Implement attention visualization for model explainability
-- [ ] Add confidence threshold tuning interface
-
-### Medium Priority
-- [ ] Add support for multilingual emotion detection (mBERT)
-- [ ] Implement real-time emotion tracking over conversation history
-- [ ] Create mobile application version (React Native + API)
-- [ ] Add A/B testing framework for model versions
-- [ ] Implement LIME/SHAP explanations for predictions
-
-### Low Priority
-- [ ] Extend to more granular emotion categories (Plutchik's wheel)
-- [ ] Integrate with voice-to-text for audio emotion detection
-- [ ] Create Chrome extension for real-time email/chat emotion analysis
-- [ ] Add emoji suggestions based on detected emotions
-- [ ] Implement ensemble methods with multiple models
-
 
 ## 📄 License
 
@@ -473,11 +393,6 @@ SOFTWARE.
 - GitHub: [@kri1105](https://github.com/kri1105)
 - LinkedIn: [Krithi S J](https://www.linkedin.com/in/krithi-s-j)
 
-Feel free to reach out for:
-- Questions about the project
-- Collaboration opportunities
-- Bug reports or feature requests
-- General feedback
 
 ## 🐛 Known Issues & Limitations
 
@@ -487,19 +402,8 @@ Feel free to reach out for:
 - Sarcasm and irony are challenging (common limitation in sentiment analysis)
 - Model performs best on English text; other languages not supported
 
-## 📚 References
-
-1. Sanh, V., Debut, L., Chaumond, J., & Wolf, T. (2019). DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter. *arXiv preprint arXiv:1910.01108*.
-
-2. Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2018). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. *arXiv preprint arXiv:1810.04805*.
-
-3. Demszky, D., Movshovitz-Attias, D., Ko, J., Cowen, A., Nemade, G., & Ravi, S. (2020). GoEmotions: A Dataset of Fine-Grained Emotions. *58th Annual Meeting of the Association for Computational Linguistics (ACL)*.
-
-4. Emotion Dataset: https://huggingface.co/datasets/dair-ai/emotion
-
-5. Huang, L., Bao, J., Chen, D., & Li, Y. (2021). Improving Multi-class Imbalanced Text Classification with Conditional Variational Autoencoders. *arXiv preprint arXiv:2110.08561*.
 
 ---
 
-**Last Updated**: February 2026
+**Last Updated**: May 2026
 **Version**: 2.0 (Optimized)
